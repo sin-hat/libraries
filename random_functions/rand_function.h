@@ -18,16 +18,28 @@ extern "C"
 #endif
 
     /* extern funtions */
-    /* Get rand max */
-    extern unsigned int Rand_get_MAX(void);
-
     /* Set random seed */
     extern int Rand_set_seed(unsigned int rand_seed);
 
-    /* Get random value */
+    /* Get rand max LCG refer to glibc (used by GCC)*/
+    extern unsigned int Rand_get_MAX(void);
+
+    /* Get random value(LCG) */
     extern unsigned int Rand_get_rand(void);
 
-    /* Get Gaussian Random Value */
+    /* Get rand max(lower bit truncated) */
+    extern unsigned int Rand_get_MAX_truncated(void);
+
+    /* Get random value(lower bit trauncated) */
+    extern unsigned int Rand_get_rand_truncated(void);
+
+    /* Get Uniform Random value [min, max] */
+    extern double Rand_get_uni_rand(double min, double max);
+
+    /* Get Exponential Random value(lambda) */
+    extern double Rand_get_exp_rand(double lambda);
+
+    /* Get Gaussian Random Value(Mu, Variance) */
     extern double Rand_get_gaus_rand(double set_Mu, double set_Variance);
 
 #ifdef __cplusplus
