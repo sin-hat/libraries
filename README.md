@@ -1,5 +1,5 @@
-# Libraries
-This software are mathematical Libraries.
+# Libraries for robotics
+This software are libraries for robotics.
 
 ## Probability density functions
 These software are probability density functions. You can get the uniform probability density value,  
