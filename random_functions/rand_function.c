@@ -4,13 +4,14 @@
 /* name: Sin.Hat                                                                                     */
 /* overview:                                                                                         */
 /*****************************************************************************************************/
+
 /* include files */
 #include "rand_function.h"
 
 /* define */
 #define rand_A (1103515245)              /* A refer to glibc (used by GCC) */
 #define rand_B (12345)                   /* B refer to glibc (used by GCC) */
-#define rand_M (2147483648)              /* M refer to glibc (used by GCC) */
+#define rand_M (2147483647)              /* M refer to glibc (used by GCC) */
 #define math_PI (3.14159265358979323846) /* PI */
 #define truncation_bit (3)               /* bit truncation */
 #define Error_state (-1)                 /* Error state */
@@ -53,8 +54,8 @@ unsigned int Rand_get_rand(void)
 
     /* init variables */
 
-    /* get rand: X_n+1 = (A * X_n + B) % M */
-    rand_x = (rand_A * rand_x + rand_B) % rand_M;
+    /* get rand: X_n+1 = (A * X_n + B) & M */
+    rand_x = (rand_A * rand_x + rand_B) & rand_M;
 
     /* return rand value */
     return rand_x;
@@ -73,8 +74,8 @@ unsigned int Rand_get_rand_truncated(void)
 
     /* init variables */
 
-    /* get rand: X_n+1 = (A * X_n + B) % M */
-    rand_x = (rand_A * rand_x + rand_B) % rand_M;
+    /* get rand: X_n+1 = (A * X_n + B) & M */
+    rand_x = (rand_A * rand_x + rand_B) & rand_M;
 
     /* return rand value */
     return (rand_x >> truncation_bit);
